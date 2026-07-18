@@ -1,0 +1,44 @@
+Tutorial liquibase
+Alguns comandos com Liquibase para o seu conhecimento
+
+
+
+Para visualizar alterações que não foram efetivadas
+
+mvn liquibase:status
+
+Para realizar deploy das alterações
+
+mvn liquibase:update
+
+Para mostrar o histórico de alterações que foram efetivadas
+
+mvn liquibase:history
+
+Para voltar alterações
+
+mvn liquibase:rollback
+
+Parâmetros de rollback
+
+-Dliquibase.rollbackCount=1 quantidade de alterações que deseja voltar
+
+-Dliquibase.rollbackToDate=YYYY-MM-DD retorna as alterações até uma data específica
+
+-Dliquibase.rollbackTag retorna as alterações até a aquela Tag
+
+Para remover todas as tabelas do banco
+
+mvn liquibase:dropAll
+
+Para gerar um changeLog do estado atual do banco, quando o mesmo não era versionado
+
+mvn liquibase:generateChangeLog
+
+Para criar uma tag para a versão atual do banco
+
+mvn liquibase:tag TAG_NAME
+
+Para validar o changeLog se possui erros
+
+mvn liquibase:validate
