@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -9,12 +9,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>4.1.0</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
     <groupId>com.udemyw</groupId>
     <artifactId>spring</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>spring</name>
     <description>Projeto Spring Boot</description>
 
@@ -24,13 +25,7 @@
 
     <dependencies>
 
-        <!-- Spring Boot -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <!-- Web -->
+        <!-- Spring Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -61,7 +56,14 @@
             <artifactId>liquibase-core</artifactId>
         </dependency>
 
-        <!-- DevTools (opcional, mas muito útil durante o desenvolvimento) -->
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- DevTools -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -80,6 +82,7 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -89,13 +92,19 @@
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>4.29.2</version>
+
                 <configuration>
                     <propertyFile>
                         src/main/resources/db/liquibase.yaml
                     </propertyFile>
-                    <changeLogFile>src/main/resources/db/changelog/001-initial.sql</changeLogFile>
+
+                    <changeLogFile>
+                        src/main/resources/db/changelog/001-initial.sql
+                    </changeLogFile>
                 </configuration>
+
             </plugin>
+
         </plugins>
     </build>
 
